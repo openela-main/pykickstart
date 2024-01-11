@@ -4,7 +4,7 @@
 %bcond_with runtests
 
 Name:      pykickstart
-Version:   3.32.9
+Version:   3.32.10
 Release:   1%{?dist}
 License:   GPLv2 and MIT
 Summary:   Python utilities for manipulating kickstart files.
@@ -79,6 +79,12 @@ make PYTHON=%{__python3} test
 %{python3_sitelib}/pykickstart*.egg-info
 
 %changelog
+* Fri Apr 28 2023 Brian C. Lane <bcl@redhat.com> - 3.32.10-1
+- Add DNS handling options to the network command (vslavik)
+  Resolves: rhbz#2172531
+- whitelist_externals has changed to allowlist_externals (bcl)
+  Related: rhbz#2172531
+
 * Fri Nov 18 2022 Brian C. Lane <bcl@redhat.com> - 3.32.9-1
 - sshkey: Escapes quotes in the ssh key (bcl)
   Resolves: rhbz#2121877
