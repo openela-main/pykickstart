@@ -1,5 +1,5 @@
 Name:      pykickstart
-Version:   3.16.15
+Version:   3.16.16
 Release:   1%{?dist}
 License:   GPLv2 and MIT
 Group:     System Environment/Libraries
@@ -65,6 +65,12 @@ make DESTDIR=%{buildroot} PYTHON=%{_bindir}/python3 install
 %{python3_sitelib}/pykickstart/
 
 %changelog
+* Fri Apr 28 2023 Brian C. Lane <bcl@redhat.com> - 3.16.16-1
+- Makefile: Add use of git signingkey (bcl)
+  Related: rhbz#2189480
+- Add DNS handling options to the network command (vslavik)
+  Resolves: rhbz#2189480
+
 * Fri Jun 24 2022 Brian C. Lane <bcl@redhat.com> - 3.16.15-1
 - Add support for automatic LUN Scan (vponcova)
   Resolves: rhbz#1497088
