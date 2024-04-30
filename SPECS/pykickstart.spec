@@ -4,7 +4,7 @@
 %bcond_with runtests
 
 Name:      pykickstart
-Version:   3.32.10
+Version:   3.32.11
 Release:   1%{?dist}
 License:   GPLv2 and MIT
 Summary:   Python utilities for manipulating kickstart files.
@@ -79,6 +79,22 @@ make PYTHON=%{__python3} test
 %{python3_sitelib}/pykickstart*.egg-info
 
 %changelog
+* Tue Dec 05 2023 Brian C. Lane <bcl@redhat.com> - 3.32.11-1
+- tox: Only run unit tests for python 3.6 (bcl)
+  Related: RHEL-17662
+- Add conflict test between ostree sources (#2125655) (jkonecny)
+  Related: RHEL-17662
+- Fix missing seen check for output generation (#2125655) (jkonecny)
+  Related: RHEL-17662
+- Add new ostreecontainer command (#2125655) (jkonecny)
+  Resolves: RHEL-17662
+- Check the conflicting commands automatically (vponcova)
+  Related: RHEL-17662
+- Fix tests for conflicting commands (vponcova)
+  Related: RHEL-17662
+- Add conflicting commands support (bcl)
+  Related: RHEL-17662
+
 * Fri Apr 28 2023 Brian C. Lane <bcl@redhat.com> - 3.32.10-1
 - Add DNS handling options to the network command (vslavik)
   Resolves: rhbz#2172531
