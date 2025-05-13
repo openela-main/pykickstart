@@ -1,10 +1,9 @@
-# Disable tests by default because they fail to run inside mock builds
-# at the moment, but can run locally.  To build and run tests, do:
-#     rpmbuild -ba --with runtests pykickstart.spec
-%bcond_with runtests
+# Enable tests by default. To disable them use:
+#     rpmbuild -ba --without runtests pykickstart.spec
+%bcond_without runtests
 
 Name:      pykickstart
-Version:   3.32.11
+Version:   3.32.14
 Release:   1%{?dist}
 License:   GPLv2 and MIT
 Summary:   Python utilities for manipulating kickstart files.
@@ -26,7 +25,6 @@ BuildRequires: make
 
 # Only required when building with runtests
 %if %{with runtests}
-BuildRequires: python3-coverage
 BuildRequires: python3-sphinx
 %endif
 
@@ -55,7 +53,7 @@ make PYTHON=%{__python3} DESTDIR=%{buildroot} install
 
 %check
 %if %{with runtests}
-make PYTHON=%{__python3} test
+LC_ALL=C make PYTHON=%{__python3} test-no-coverage
 %endif
 
 %files
@@ -79,6 +77,20 @@ make PYTHON=%{__python3} test
 %{python3_sitelib}/pykickstart*.egg-info
 
 %changelog
+* Thu Jan 30 2025 Brian C. Lane <bcl@redhat.com> - 3.32.14-1
+- Update %%certificate section documentation (rvykydal)
+  Related: RHEL-61432
+- Make %%certificate section option --dir mandatory. (rvykydal)
+  Resolves: RHEL-76501
+
+* Fri Jan 17 2025 Brian C. Lane <bcl@redhat.com> - 3.32.13-1
+- Switch to using tmt based tests and running unit tests during build
+  Related: RHEL-61432
+
+* Wed Jan 15 2025 Brian C. Lane <bcl@redhat.com> - 3.32.12-1
+- Add support for inline certificates with `%certificate` section (k.koukiou)
+  Resolves: RHEL-61432
+
 * Tue Dec 05 2023 Brian C. Lane <bcl@redhat.com> - 3.32.11-1
 - tox: Only run unit tests for python 3.6 (bcl)
   Related: RHEL-17662
