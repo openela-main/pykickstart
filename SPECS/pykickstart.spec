@@ -4,7 +4,7 @@
 %bcond_with signed
 
 Name:      pykickstart
-Version:   3.52.8
+Version:   3.52.9
 Release:   1%{?dist}
 License:   GPL-2.0-only
 Summary:   Python utilities for manipulating kickstart files.
@@ -78,6 +78,12 @@ LC_ALL=C make PYTHON=%{__python3} test-no-coverage
 %{python3_sitelib}/pykickstart*.egg-info
 
 %changelog
+* Tue May 27 2025 Brian C. Lane <bcl@redhat.com> - 3.52.9-1
+- workflows: Switch to using ubuntu-latest (bcl)
+  Related: RHEL-80086
+- Do not remove "md" prefix from RAID names (vtrefny)
+  Resolves: RHEL-80086
+
 * Thu Jan 30 2025 Brian C. Lane <bcl@redhat.com> - 3.52.8-1
 - Update %%certificate section documentation (rvykydal)
   Related: RHEL-61435
