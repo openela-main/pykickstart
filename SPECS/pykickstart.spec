@@ -3,7 +3,7 @@
 %bcond_without runtests
 
 Name:      pykickstart
-Version:   3.32.14
+Version:   3.32.15
 Release:   1%{?dist}
 License:   GPLv2 and MIT
 Summary:   Python utilities for manipulating kickstart files.
@@ -77,6 +77,14 @@ LC_ALL=C make PYTHON=%{__python3} test-no-coverage
 %{python3_sitelib}/pykickstart*.egg-info
 
 %changelog
+* Tue May 27 2025 Brian C. Lane <bcl@redhat.com> - 3.32.15-1
+- workflows: run tests using only python 3.9 (bcl)
+  Related: RHEL-75659
+- workflows: Switch to using ubuntu-latest (bcl)
+  Related: RHEL-75659
+- Do not remove "md" prefix from RAID names (vtrefny)
+  Resolves: RHEL-75659
+
 * Thu Jan 30 2025 Brian C. Lane <bcl@redhat.com> - 3.32.14-1
 - Update %%certificate section documentation (rvykydal)
   Related: RHEL-61432
