@@ -4,7 +4,7 @@
 %bcond_with signed
 
 Name:      pykickstart
-Version:   3.52.9
+Version:   3.52.12
 Release:   1%{?dist}
 License:   GPL-2.0-only
 Summary:   Python utilities for manipulating kickstart files.
@@ -78,6 +78,22 @@ LC_ALL=C make PYTHON=%{__python3} test-no-coverage
 %{python3_sitelib}/pykickstart*.egg-info
 
 %changelog
+* Thu Dec 04 2025 Brian C. Lane <bcl@redhat.com> - 3.52.12-1
+- rhsm: Add Flatpak registry option for RHEL10 (bciconel)
+  Resolves: RHEL-132652
+  Related: RHEL-132663
+
+* Tue Dec 02 2025 Brian C. Lane <bcl@redhat.com> - 3.52.11-1
+- Add support for new bootc kickstart command (ppolawsk)
+  Resolves: RHEL-132612
+  Related: RHEL-58215
+
+* Tue Sep 09 2025 Brian C. Lane <bcl@redhat.com> - 3.52.10-1
+- pylint: Ignore files in .git (bcl)
+  Related: RHEL-96217
+- Add support for RDP (jkonecny)
+  Resolves: RHEL-96217
+
 * Tue May 27 2025 Brian C. Lane <bcl@redhat.com> - 3.52.9-1
 - workflows: Switch to using ubuntu-latest (bcl)
   Related: RHEL-80086
