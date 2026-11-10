@@ -4,7 +4,7 @@
 %bcond_with signed
 
 Name:      pykickstart
-Version:   3.52.12
+Version:   3.52.13
 Release:   1%{?dist}
 License:   GPL-2.0-only
 Summary:   Python utilities for manipulating kickstart files.
@@ -78,6 +78,12 @@ LC_ALL=C make PYTHON=%{__python3} test-no-coverage
 %{python3_sitelib}/pykickstart*.egg-info
 
 %changelog
+* Wed Jun 03 2026 Brian C. Lane <bcl@redhat.com> - 3.52.13-1
+- Add --type option to %certificate section (rvykydal)
+  Resolves: RHEL-181666
+- Update the %certificate section documentation (rvykydal)
+  Related: RHEL-181666
+
 * Thu Dec 04 2025 Brian C. Lane <bcl@redhat.com> - 3.52.12-1
 - rhsm: Add Flatpak registry option for RHEL10 (bciconel)
   Resolves: RHEL-132652
